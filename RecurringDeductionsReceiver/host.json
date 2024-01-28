@@ -1,0 +1,13 @@
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      },
+      "enableLiveMetricsFilters": true
+    }
+  },
+  "Cosmos": "AccountEndpoint=https://fleetlycosmosdb.documents.azure.com:443/;AccountKey=YNYnvUBgC7nS8rhyWjusQxdm5RNPW1oCW7auhdbUHHSIUdjPSfktGSMAYcybfBxoxzuDG4ojdwRpACDbQZTG2Q==;"
+}

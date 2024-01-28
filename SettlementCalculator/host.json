@@ -1,0 +1,14 @@
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      },
+      "enableLiveMetricsFilters": true
+    }
+  },
+  "Settlements": "Endpoint=sb://fleetly.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=ecEHapXBh4uHIb3CrLDJPRXo+SC7GtFFv+ASbGIw60c=",
+  "Cosmos": "AccountEndpoint=https://fleetlycosmosdb.documents.azure.com:443/;AccountKey=YNYnvUBgC7nS8rhyWjusQxdm5RNPW1oCW7auhdbUHHSIUdjPSfktGSMAYcybfBxoxzuDG4ojdwRpACDbQZTG2Q==;"
+}
