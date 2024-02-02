@@ -45,7 +45,7 @@ namespace SettlementPolling
         {
             
             var baseUrl = $"https://tms.christensonloadtracking.com:5790/";
-            var settlementsUrl = @"ws/settlements/search?settlement.transfer_date=>=1/7/2024";
+            var settlementsUrl = @"ws/settlements/search?settlement.transfer_date=>=1/7/2024&payee_id=WFORTS";
             var httpClientHelper = new HTTPClientHelper(_httpClientFactory, "SettlementsService", baseUrl);
 
             var settlements = await httpClientHelper.GetAsync<List<Settlement>>(baseUrl + settlementsUrl);

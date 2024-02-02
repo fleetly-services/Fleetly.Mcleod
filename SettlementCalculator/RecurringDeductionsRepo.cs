@@ -24,7 +24,7 @@ namespace SettlementEvaluator
 
         public async Task<RecurringDeduction> Get(string id)
         {
-            ItemResponse<RecurringDeduction> ret = await container.ReadItemAsync<RecurringDeduction>(id, new PartitionKey("id"));//make sure this partition key is right if this doesn't work 
+            ItemResponse<RecurringDeduction> ret = await container.ReadItemAsync<RecurringDeduction>(id, new PartitionKey(id));//make sure this partition key is right if this doesn't work 
             
             return ret.Resource;
         }

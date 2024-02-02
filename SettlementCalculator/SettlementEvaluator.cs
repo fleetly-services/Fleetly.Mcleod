@@ -60,12 +60,12 @@ namespace SettlementEvaluator
                 var recurringDeductions = _recurringDeductRepo.GetByPayeeId(payee.id);
                 await Task.WhenAll(pendingDeductions, recurringDeductions);
 
-                var recurringDeductionIds = pendingDeductions.Result.Select(x => x.recur_deduct_id).ToList();//get the recurring deduction ids so we can filter them out if they've already been processed into a pending deduct
-                var netRecurringDeductions = recurringDeductions.Result.Where(d => !recurringDeductionIds.Contains(d.deduct_code_id)).ToList();
+                var recurringDeductionIds = pendingDeductions.Result.Where(x => x.recur_deduct_id != null).Select(x => x.recur_deduct_id).ToList();//get the recurring deduction ids so we can filter them out if they've already been processed into a pending deduct
+                var netRecurringDeductions = recurringDeductions.Result.Where(d => !recurringDeductionIds.Contains(d.id)).ToList();
 
                 var totalPay = settlement.TotalPay();
                 var pendingDeductionAmount = await GetPendingDeductionsAmount(pendingDeductions.Result);
-                var recurringDeductionAmount = await GetRecurringDeductionsAmount(netRecurringDeductions, maxDeliveryDate, totalPay);
+                var recurringDeductionAmount = await GetRecurringDeductionsAmount(recurringDeductions.Result, maxDeliveryDate, totalPay);
 
                 var availableAdvance = totalPay - pendingDeductionAmount - recurringDeductionAmount - payee.drspayee.taxable_owed;
 

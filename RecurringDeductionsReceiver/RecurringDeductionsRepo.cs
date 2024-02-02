@@ -4,7 +4,7 @@ using RecurringDeductionsReceiver;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace SettlementEvaluator
+namespace RecurringDeductionsReceiver
 {
     public interface IRecurringDeductionRepo
     {

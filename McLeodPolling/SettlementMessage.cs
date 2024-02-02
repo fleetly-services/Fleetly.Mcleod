@@ -18,7 +18,7 @@ namespace SettlementPolling
         public static List<SettlementMessage> Create(List<Settlement> settlements)
         {
             var settlementMessages = new List<SettlementMessage>();
-            var payeeIds = settlements.Select(x => x.payee_id).ToList();
+            var payeeIds = settlements.Select(x => x.payee_id).Distinct().ToList();
             payeeIds.ForEach(p =>
             {
                 var message = new SettlementMessage();

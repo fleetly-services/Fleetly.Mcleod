@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetlyTMSPolling", "McLeodPolling\FleetlyTMSPolling.csproj", "{9C5C65AF-DA2C-4178-82FD-CDA4B73ECF3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SettlementPolling", "McLeodPolling\SettlementPolling.csproj", "{9C5C65AF-DA2C-4178-82FD-CDA4B73ECF3B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SettlementEvaluator", "SettlementCalculator\SettlementEvaluator.csproj", "{A9D64C8C-906C-4D19-9EB0-054B1B6943DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecurringDeductionsReceiver", "RecurringDeductionsReceiver\RecurringDeductionsReceiver.csproj", "{AE170B5E-B804-4F1B-9CB0-59EFCAB7128F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecurringDeductionsReceiver", "RecurringDeductionsReceiver\RecurringDeductionsReceiver.csproj", "{AE170B5E-B804-4F1B-9CB0-59EFCAB7128F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

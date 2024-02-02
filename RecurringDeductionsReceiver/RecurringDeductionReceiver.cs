@@ -7,29 +7,36 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using Microsoft.Azure.Cosmos;
 
 namespace RecurringDeductionsReceiver
 {
-    public static class RecurringDeductionReceiver
+    public class RecurringDeductionReceiver
     {
+        IRecurringDeductionRepo _repo;
+        public RecurringDeductionReceiver(IRecurringDeductionRepo repo) 
+        {
+            _repo = repo;
+        }
         [FunctionName("RecurringDeductionUpdate")]
-        public static async Task<IActionResult> Run(
+        public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
+            try
+            {
+                string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+                var data = JsonConvert.DeserializeObject<RecurringDeduction>(requestBody);
 
-            string name = req.Query["name"];
+                await _repo.Save(data);
+                return new OkObjectResult("Succesful");
 
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-            name = name ?? data?.name;
-
-            string responseMessage = string.IsNullOrEmpty(name)
-                ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello, {name}. This HTTP triggered function executed successfully.";
-
-            return new OkObjectResult(responseMessage);
+            }
+            catch (Exception ex) 
+            {
+                return new UnprocessableEntityObjectResult("Invalid Recurring Deduction Format.");
+            }
         }
     }
 }

@@ -9,5 +9,9 @@
       "enableLiveMetricsFilters": true
     }
   },
-  "Cosmos": "AccountEndpoint=https://fleetlycosmosdb.documents.azure.com:443/;AccountKey=YNYnvUBgC7nS8rhyWjusQxdm5RNPW1oCW7auhdbUHHSIUdjPSfktGSMAYcybfBxoxzuDG4ojdwRpACDbQZTG2Q==;"
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "Cosmos": "AccountEndpoint=https://fleetlycosmosdb.documents.azure.com:443/;AccountKey=YNYnvUBgC7nS8rhyWjusQxdm5RNPW1oCW7auhdbUHHSIUdjPSfktGSMAYcybfBxoxzuDG4ojdwRpACDbQZTG2Q==;"
+  }
 }
